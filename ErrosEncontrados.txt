@@ -1,0 +1,3 @@
+erros encontrados:
+- Ao editar um aluno, a cidade e o curso que vem selecionados estão incorretos, acho que está 
+  pegando o valor do primeiro item inserido antes de editar.
