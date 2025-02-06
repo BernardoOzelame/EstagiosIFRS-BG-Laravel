@@ -55,7 +55,7 @@
             ÁREAS
         </a>
 
-        <a class="card" href="../cidades.php">
+        <a class="card" href="{{ route('cidades') }}">
             CIDADES
         </a>
 

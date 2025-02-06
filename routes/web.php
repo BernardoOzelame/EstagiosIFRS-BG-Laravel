@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlunosController;
 use App\Http\Controllers\AreasController;
+use App\Http\Controllers\CidadesController;
 use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
 
@@ -57,6 +58,22 @@ Route::prefix('areas')->middleware('auth')->group(function() {
     Route::get('/apagar/{area}', [AreasController::class, 'apagar'])->name('areas/apagar'); 
     
     Route::delete('/apagar/{area}', [AreasController::class, 'deletar']);
+});
+
+Route::prefix('cidades')->middleware('auth')->group(function() {
+    Route::get('/', [CidadesController::class, 'index'])->name('cidades');
+
+    Route::get('/cadastrar', [CidadesController::class, 'cadastrar'])->name('cidades/cadastrar');
+    
+    Route::post('/cadastrar', [CidadesController::class, 'gravar'])->name('cidades/gravar');
+    
+    Route::get('/editar/{cidade}', [CidadesController::class, 'editar'])->name('cidades/editar');
+    
+    Route::put('/editar/{cidade}', [CidadesController::class, 'editarGravar']);
+    
+    Route::get('/apagar/{cidade}', [CidadesController::class, 'apagar'])->name('cidades/apagar'); 
+    
+    Route::delete('/apagar/{cidade}', [CidadesController::class, 'deletar']);
 });
 
 Route::get('/login', [UsuariosController::class, 'login'])->name('login');
