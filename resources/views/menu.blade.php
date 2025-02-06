@@ -29,7 +29,7 @@
             <a href="notasEstagio.php" onclick="toggleMenu()">Notas</a>
         </li>
         <li>
-            <a href="cursos.php" onclick="toggleMenu()">Cursos</a>
+            <a href="{{ route('cursos') }}" onclick="toggleMenu()">Cursos</a>
         </li>
         <li>
             <a href="{{ route('areas') }}" onclick="toggleMenu()">Áreas</a>

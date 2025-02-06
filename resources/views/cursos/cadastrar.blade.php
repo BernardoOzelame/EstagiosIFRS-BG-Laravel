@@ -12,7 +12,7 @@
 
 @extends('menu')
 
-@section('titulo', 'Cadastrar Área')
+@section('titulo', 'Cadastrar Curso')
 
 @section('conteudo')
 
@@ -28,11 +28,11 @@
         </div>
     @endif
 
-    <h1>FORMULÁRIO DA ÁREA</h1>
+    <h1>FORMULÁRIO DO CURSO</h1>
 
-    <a class="inserir"  href="{{ route('areas') }}">voltar para a listagem</a>
+    <a class="inserir"  href="{{ route('cursos') }}">voltar para a listagem</a>
 
-    <form action="{{ route('areas/gravar') }}" method="POST" id="formulario">
+    <form action="{{ route('cursos/gravar') }}" method="POST" id="formulario">
         @csrf
         <label for="nome" title="Este campo é obrigatório!">Nome<span class="obrigatorio"> *</span></label>
         <input type="text" name="nome" id="nome" placeholder="Nome" value="{{ old('nome') }}">

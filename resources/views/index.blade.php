@@ -47,7 +47,7 @@
             NOTAS
         </a>
 
-        <a class="card" href="../cursos.php">
+        <a class="card" href="{{ route('cursos') }}">
             CURSOS
         </a>
 
