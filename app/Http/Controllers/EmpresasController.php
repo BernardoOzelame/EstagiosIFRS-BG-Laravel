@@ -63,13 +63,13 @@ class EmpresasController extends Controller {
         $areas = Area::pluck('id')->toArray();
 
         $dados = $form->validate([
+            'nome'=> 'required',
             'cnpj'=> 'required|unique:empresas,cnpj,' . $empresa->id,
             'numConvenio' => 'required|integer|unique:empresas,numConvenio,' . $empresa->id,
-            'nome'=> 'required',
-            'endereco'=> 'required',
             'telefoneCelular'=> 'required',
             'email'=> 'required|email|unique:empresas,email,' . $empresa->id,
             'areas_id' => 'required|in:' . implode(',', $areas),
+            'endereco'=> 'required',
             'cidades_id' => 'required|in:' . implode(',', $cidades),
         ],
         [

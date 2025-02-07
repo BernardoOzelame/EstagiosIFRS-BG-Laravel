@@ -15,4 +15,8 @@ class Professor extends Model {
         'email',
         'areas_id',
     ];
+
+    public function area() {
+        return $this->belongsTo(Area::class, 'areas_id');
+    }
 }
