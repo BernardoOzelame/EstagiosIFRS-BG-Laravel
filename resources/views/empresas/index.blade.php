@@ -13,7 +13,7 @@
 
 @extends('menu')
 
-@section('titulo', 'Usuários')
+@section('titulo', 'Empresas')
 
 @section('conteudo')
 
@@ -27,9 +27,9 @@
         </div>
     @endif
 
-    <h1>USUÁRIOS</h1>
+    <h1>EMPRESAS</h1>
 
-    <a class="inserir" href="{{ route('usuarios/cadastrar') }}">inserir novo usuário</a>
+    <a class="inserir" href="{{ route('empresas/cadastrar') }}">inserir nova empresa</a>
 
     <div class="pesquisar">
         <input type="text" id="pesquisa" placeholder="">
@@ -41,31 +41,38 @@
             <thead>
                 <tr>
                     <th>Nome</th>
-                    <th>Login</th>
-                    <th>Tipo de Usuário</th>
+                    <th>CNPJ</th>
+                    <th>Número do convênio</th>
                     <th class="thAcoes">Ações</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($usuarios as $usuario)
+                @foreach($empresas as $empresa)
                     <tr>
-                        <td>{{ $usuario->nome }}</td>
-                        <td>{{ $usuario->login }}</td>
-                        <td>{{ $usuario->tipoUsuario }}</td>
+                        <td>{{ $empresa->nome }}</td>
+                        <td>{{ $empresa->cnpj }}</td>
+                        <td>{{ $empresa->numConvenio }}</td>
                         <td>
                             <button 
                                 type="button"
                                 class="acoes editar"
                                 title="Editar"
-                                onclick="window.location.href='{{ route('usuarios/editar', $usuario->id) }}'">
+                                onclick="window.location.href='{{ route('empresas/editar', $empresa->id) }}'">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </button>
                             <button 
                                 type="button" 
                                 class="acoes excluir"
                                 title="Excluir"
-                                onclick="abrirModal({{ $usuario->id }}, 'Exclusao')">
+                                onclick="abrirModal({{ $empresa->id }}, 'Exclusao')">
                                 <i class='fa-solid fa-trash-can'></i>
+                            </button>
+                            <button 
+                                type="button" 
+                                class="acoes visualizar"
+                                title="Ver detalhes"
+                                onclick="abrirModal({{ $empresa->id }}, 'Visualizacao')">
+                                <i class='fa-solid fa-circle-info'></i>
                             </button>
                         </td>
                     </tr>
@@ -76,8 +83,9 @@
         <div id="nenhumResultado">nenhum resultado encontrado</div>
 
     </div>
-    @foreach($usuarios as $usuario)
-        @include('usuarios/apagar', ['usuario' => $usuario])
+    @foreach($empresas as $empresa)
+        @include('empresas/apagar', ['empresa' => $empresa])
+        @include('empresas/visualizar', ['empresa' => $empresa])
     @endforeach
 
 @endsection

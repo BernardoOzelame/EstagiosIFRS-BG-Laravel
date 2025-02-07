@@ -19,4 +19,12 @@ class Empresa extends Model {
         'areas_id',
         'cidades_id'
     ];
+
+    public function cidade() {
+        return $this->belongsTo(Cidade::class, 'cidades_id');
+    }
+
+    public function area() {
+        return $this->belongsTo(Area::class, 'areas_id');
+    }
 }

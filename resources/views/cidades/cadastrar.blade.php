@@ -4,7 +4,6 @@
         "css/toasts.css"
     ];
     $arquivosJS = [
-        "js/iconSenhas.js",
         "js/selects.js"
     ];
 @endphp

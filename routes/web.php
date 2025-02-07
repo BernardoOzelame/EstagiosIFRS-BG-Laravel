@@ -4,6 +4,7 @@ use App\Http\Controllers\AlunosController;
 use App\Http\Controllers\AreasController;
 use App\Http\Controllers\CidadesController;
 use App\Http\Controllers\CursosController;
+use App\Http\Controllers\EmpresasController;
 use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
 
@@ -91,6 +92,22 @@ Route::prefix('cursos')->middleware('auth')->group(function() {
     Route::get('/apagar/{curso}', [CursosController::class, 'apagar'])->name('cursos/apagar'); 
     
     Route::delete('/apagar/{curso}', [CursosController::class, 'deletar']);
+});
+
+Route::prefix('empresas')->middleware('auth')->group(function() {
+    Route::get('/', [EmpresasController::class, 'index'])->name('empresas');
+
+    Route::get('/cadastrar', [EmpresasController::class, 'cadastrar'])->name('empresas/cadastrar');
+    
+    Route::post('/cadastrar', [EmpresasController::class, 'gravar'])->name('empresas/gravar');
+    
+    Route::get('/editar/{empresa}', [EmpresasController::class, 'editar'])->name('empresas/editar');
+    
+    Route::put('/editar/{empresa}', [EmpresasController::class, 'editarGravar']);
+    
+    Route::get('/apagar/{empresa}', [EmpresasController::class, 'apagar'])->name('empresas/apagar'); 
+    
+    Route::delete('/apagar/{empresa}', [EmpresasController::class, 'deletar']);
 });
 
 Route::get('/login', [UsuariosController::class, 'login'])->name('login');

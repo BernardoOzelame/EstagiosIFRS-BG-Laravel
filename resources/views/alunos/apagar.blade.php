@@ -9,7 +9,7 @@
                 <br>
                 <b>Nome:</b> {{ $aluno->nome }}
                 <br>
-                <b>Nome:</b> {{ $aluno->matricula }}
+                <b>Matrícula:</b> {{ $aluno->matricula }}
             </em>
         </p>
         <form method="post" action="{{ route('alunos/apagar', $aluno->id) }}" class="formExclusao">

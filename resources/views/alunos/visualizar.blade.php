@@ -21,9 +21,9 @@
             <br>
             <b>Ano que realiza estágio:</b> <i>{{ $aluno->anoEstagio }}</i>
             <br>
-            <i>*{{ $aluno->finalizou2Ano == 1 ? 'Aluno já finalizou o 2º ano' : 'Aluno ainda não finalizou o 2º ano' }}</i>
-            <br>
             <i>*{{ $aluno->finalizouCurso == 1 ? 'Aluno já finalizou o curso' : 'Aluno ainda não finalizou o curso' }}</i>
+            <br>
+            @if ($aluno->finalizou2Ano != 1)<i>*Aluno ainda não finalizou o 2º ano</i>@endif
         </p>
     </div>
 </div>

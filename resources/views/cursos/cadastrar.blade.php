@@ -3,9 +3,6 @@
         "css/forms.css",
         "css/toasts.css"
     ];
-    $arquivosJS = [
-        "js/iconSenhas.js"
-    ];
 @endphp
 
 @extends('base')

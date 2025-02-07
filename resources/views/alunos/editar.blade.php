@@ -4,7 +4,7 @@
         "css/toasts.css"
     ];
     $arquivosJS = [
-        "js/iconSenhas.js"
+        "js/regraFormAluno.js"
     ];
 @endphp
 
@@ -46,7 +46,7 @@
             <option value="-1">Selecione o curso</option>
             @foreach($cursos as $curso)
                 <option value="{{ $curso->id }}"
-                    @selected(old('curso_id', $aluno->curso_id) == $curso->id)>
+                    {{ old('curso_id', $aluno->curso_id ?? '') == $curso->id ? 'selected' : '' }}>
                     {{ $curso->nome }}
                 </option>
             @endforeach
@@ -79,19 +79,6 @@
         <input type="text" name="anoEstagio" id="anoEstagio" placeholder="Ano Estágio" value="{{ old('anoEstagio', $aluno->anoEstagio ?? '') }}">
 
         <div class="radio-group">
-            <label title="Este campo é obrigatório!">Finalizou 2º ano?<span class="obrigatorio"> *</span></label>
-            <div class="radio-options">
-                <input type="radio" name="finalizou2Ano" id="finalizou2AnoSim" value="1" 
-                    @checked(old('finalizou2Ano', $aluno->finalizou2Ano ?? '') == '1')>
-                <label for="finalizou2AnoSim">Sim</label>
-        
-                <input type="radio" name="finalizou2Ano" id="finalizou2AnoNao" value="0" 
-                    @checked(old('finalizou2Ano', $aluno->finalizou2Ano ?? '') == '0')>
-                <label for="finalizou2AnoNao">Não</label>
-            </div>
-        </div>
-        
-        <div class="radio-group">
             <label title="Este campo é obrigatório!">Finalizou Curso?<span class="obrigatorio"> *</span></label>
             <div class="radio-options">
                 <input type="radio" name="finalizouCurso" id="finalizouCursoSim" value="1" 
@@ -101,6 +88,19 @@
                 <input type="radio" name="finalizouCurso" id="finalizouCursoNao" value="0" 
                     @checked(old('finalizouCurso', $aluno->finalizouCurso ?? '') == '0')>
                 <label for="finalizouCursoNao">Não</label>
+            </div>
+        </div>
+
+        <div class="radio-group">
+            <label title="Este campo é obrigatório!">Finalizou 2º ano?<span class="obrigatorio"> *</span></label>
+            <div class="radio-options">
+                <input type="radio" name="finalizou2Ano" id="finalizou2AnoSim" value="1" 
+                    @checked(old('finalizou2Ano', $aluno->finalizou2Ano ?? '') == '1')>
+                <label for="finalizou2AnoSim">Sim</label>
+        
+                <input type="radio" name="finalizou2Ano" id="finalizou2AnoNao" value="0" 
+                    @checked(old('finalizou2Ano', $aluno->finalizou2Ano ?? '') == '0')>
+                <label for="finalizou2AnoNao">Não</label>
             </div>
         </div>
         
