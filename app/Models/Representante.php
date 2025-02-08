@@ -16,4 +16,8 @@ class Representante extends Model {
         'cpf',
         'empresas_id',
     ];
+
+    public function empresa() {
+        return $this->belongsTo(Empresa::class, 'empresas_id');
+    }
 }

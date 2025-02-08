@@ -41,7 +41,7 @@
             <a href="supervisores.php" onclick="toggleMenu()">Supervisores</a>
         </li>
         <li>
-            <a href="representantes.php" onclick="toggleMenu()">Representantes</a>
+            <a href="{{ route('representantes') }}" onclick="toggleMenu()">Representantes</a>
         </li>
         <li>
             <a href="empresas.php" onclick="toggleMenu()">Empresas</a>

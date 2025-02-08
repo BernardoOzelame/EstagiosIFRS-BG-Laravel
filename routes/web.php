@@ -6,6 +6,7 @@ use App\Http\Controllers\CidadesController;
 use App\Http\Controllers\CursosController;
 use App\Http\Controllers\EmpresasController;
 use App\Http\Controllers\ProfessoresController;
+use App\Http\Controllers\RepresentantesController;
 use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
 
@@ -125,6 +126,22 @@ Route::prefix('professores')->middleware('auth')->group(function() {
     Route::get('/apagar/{professor}', [ProfessoresController::class, 'apagar'])->name('professores/apagar'); 
     
     Route::delete('/apagar/{professor}', [ProfessoresController::class, 'deletar']);
+});
+
+Route::prefix('representantes')->middleware('auth')->group(function() {
+    Route::get('/', [RepresentantesController::class, 'index'])->name('representantes');
+
+    Route::get('/cadastrar', [RepresentantesController::class, 'cadastrar'])->name('representantes/cadastrar');
+    
+    Route::post('/cadastrar', [RepresentantesController::class, 'gravar'])->name('representantes/gravar');
+    
+    Route::get('/editar/{representante}', [RepresentantesController::class, 'editar'])->name('representantes/editar');
+    
+    Route::put('/editar/{representante}', [RepresentantesController::class, 'editarGravar']);
+    
+    Route::get('/apagar/{representante}', [RepresentantesController::class, 'apagar'])->name('representantes/apagar'); 
+    
+    Route::delete('/apagar/{representante}', [RepresentantesController::class, 'deletar']);
 });
 
 Route::get('/login', [UsuariosController::class, 'login'])->name('login');

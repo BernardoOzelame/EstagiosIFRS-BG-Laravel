@@ -39,7 +39,7 @@
             ALUNOS
         </a>
 
-        <a class="card" href="../professores.php">
+        <a class="card" href="{{ route('professores') }}">
             PROFESSORES
         </a>
 
@@ -62,11 +62,11 @@
         <a class="card" href="../supervisores.php">
             SUPERVISORES
 
-        <a class="card" href="../representantes.php">
+        <a class="card" href="{{ route('representantes') }}">
             REPRESENTANTES
         </a>
 
-        <a class="card" href="../empresas.php">
+        <a class="card" href="{{ route('empresas') }}">
             EMPRESAS
         </a>
 
