@@ -59,7 +59,7 @@
             CIDADES
         </a>
 
-        <a class="card" href="../supervisores.php">
+        <a class="card" href="{{ route('supervisores') }}">
             SUPERVISORES
 
         <a class="card" href="{{ route('representantes') }}">

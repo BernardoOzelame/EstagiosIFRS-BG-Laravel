@@ -38,7 +38,7 @@
             <a href="{{ route('cidades') }}" onclick="toggleMenu()">Cidades</a>
         </li>
         <li>
-            <a href="supervisores.php" onclick="toggleMenu()">Supervisores</a>
+            <a href="{{ route('supervisores') }}" onclick="toggleMenu()">Supervisores</a>
         </li>
         <li>
             <a href="{{ route('representantes') }}" onclick="toggleMenu()">Representantes</a>

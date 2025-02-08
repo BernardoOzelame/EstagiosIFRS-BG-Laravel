@@ -18,4 +18,8 @@ class Supervisor extends Model {
         'telefoneCelular',
         'empresas_id'
     ];
+
+    public function empresa() {
+        return $this->belongsTo(Empresa::class, 'empresas_id');
+    }
 }
